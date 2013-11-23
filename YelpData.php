@@ -1,6 +1,6 @@
 <?php
 
-	class YelpData 
+	class YelpData implements IData
 	{
 		function __construct()
 		{
