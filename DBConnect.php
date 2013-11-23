@@ -25,8 +25,9 @@ class DBConnect
 	}
 
 	public function runQuery($query){
-
+		print($query);
 		$result = mysql_query($query, $this->dbhandle) or die('Errant query:  '.$query);
+		mysql_close($this->dbhandle);
 
 		return $result;
 	}
