@@ -1,23 +1,19 @@
 <?php
 include 'User.php';
-include 'DBConnect.php';
-
 
 class Registration
 {
-	private $database = null;
 	private $user = null;
 
 	function __construct()
 	{
-		$this->database = new DBConnect();
-		$this->database->getConnection();
+		$this->user = new User();
 	}
 
 
 	public function Resgister(){
 
-
+		$this->user->createUser($this->namePassMail(), $this->addressSet());
 	}
 
 
@@ -27,30 +23,64 @@ class Registration
 			isset($_GET['username']) && isset($_GET['password']) && 
 				isset($_GET['email'])){
 
-			$firstname = $_GET['firstname'];
-			$lastname = $_GET['lastname'];
-			$username = $_GET['username'];
-			$password = $_GET['password'];
-			$email = $_GET['email'];
+			$userArray = array(
+
+				$_GET['firstname'],
+				$_GET['lastname'],
+				$_GET['username'],
+				$_GET['password'],
+				$_GET['email']
+			);
+
+
+			return $userArray;
 
 		}else{
 
-			$firstname = $_SERVER['argv'][1];
-			$lastname = $_SERVER['argv'][2];
-			$username = $_SERVER['argv'][3];
-			$password = $_SERVER['argv'][4];
-			$email = $_SERVER['argv'][5];
+			$userArray = array(
+
+				$_SERVER['argv'][1],
+				$_SERVER['argv'][2],
+				$_SERVER['argv'][3],
+				$_SERVER['argv'][4],
+				$_SERVER['argv'][5]
+			);
+
+			return $userArray;
 
 		}
 	}
 
 	public function addressSet(){
 
+		if (isset($_GET['street']) && isset($_GET['city']) && 
+			isset($_GET['state']) && isset($_GET['zip'])) {
+			
+			$addressArray = array(
 
-		
+				$_GET['street'],
+				$_GET['city'],
+				$_GET['state'],
+				$_GET['zip']
+
+			);
+		}else{
+
+			$addressArray = array(
+
+				$_SERVER['argv'][6],
+				$_SERVER['argv'][7],
+				$_SERVER['argv'][8],
+				$_SERVER['argv'][9]
+
+			);
+		}
+
+
 	}
 }
 
-
+$register = new Registration();
+$register->Resgister();
 
 ?>

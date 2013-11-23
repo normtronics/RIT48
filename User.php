@@ -43,11 +43,11 @@ class User
 }
 
 
-$user = new User();
-$users = array('test' , 'test' , 'test4' , 'test' , 'test', 'test', 'test');
-print_r($users);
+//$user = new User();
+//$users = array('test' , 'test' , 'test4' , 'test' , 'test', 'test', 'test');
+//print_r($users);
 
-print($user->createUser($users));
+//print($user->createUser($users));
 
 
 ?>

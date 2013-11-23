@@ -7,7 +7,10 @@
 			# code...
 		}
 
-		public function getData($type, $location){
+		public function getData(){
+
+			$type = $_GET['type'];
+			$location = $_GET['location'];
 			
 			// Enter the path that the oauth library is in relation to the php file
 			require_once ('OAuth.php');
@@ -54,12 +57,32 @@
 			$response = json_decode($data);
 
 			// Print it for debugging
-			print_r($response);
+			//print_r($response);
+
+			header('Content-type: application/json');
+			//echo json_encode($this->objectToArray($data));
+			echo json_encode(array('Yelp' => $response));
 		}
+
+
+		public function objectToArray($d) {
+
+			if (is_object($d)) {
+				// Gets the properties of the object
+				$d = get_object_vars($d);
+			}
+
+			if (is_array($d)) {
+				return array_map(__FUNCTION__, $d);
+			} else {
+				// Return array
+				return $d;
+			}
+}
 	}
 
 
 	$yelp = new YelpData();
-	$yelp->getData('floor', '14623');
+	$yelp->getData();
 
 ?>
