@@ -15,7 +15,7 @@ class YellowPages extends IData
 		//$where = $_GET['where'];
 
 		$what = 'florists';
-		$where = 'Vancouver';
+		$where = 'Trenton';
 
 		$apikey = '6pwsqdjgqmd4c7b28g9h6epm';
 		$UID = '127.0.0.1';
