@@ -21,12 +21,25 @@ class DBConnect
 
 	public function getDatabase($database){
 
-		mysql_select_db($database , $this->dbhandle) or die('Cannot select the DB');
+		mysql_select_db($database , $this->dbhandle) or die(mysql_error());
 	}
 
 	public function runQuery($query){
-		print($query);
-		$result = mysql_query($query, $this->dbhandle) or die('Errant query:  '.$query);
+
+		$result = mysql_query($query, $this->dbhandle);
+
+		print($result);
+
+		if(mysql_error() && strpos(mysql_error(),'username')){
+			print('Username already esist');
+			return 0;
+		}
+
+		if (mysql_error() && strpos(mysql_error(),'email')) {
+			print('Email already esist');
+			return 1;
+		}
+
 		mysql_close($this->dbhandle);
 
 		return $result;
