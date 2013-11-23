@@ -1,6 +1,8 @@
 <?php
 
-	class YelpData implements IData
+	include 'IData.php';
+
+	class YelpData extends IData
 	{
 		function __construct()
 		{
@@ -54,14 +56,14 @@
 			curl_close($ch);
 
 			// Handle Yelp response data
-			$response = json_decode($data);
+			//$response = json_decode($data);
 
 			// Print it for debugging
 			//print_r($response);
 
 			header('Content-type: application/json');
 			//echo json_encode($this->objectToArray($data));
-			echo json_encode(array('Yelp' => $response));
+			echo $data;
 		}
 
 
