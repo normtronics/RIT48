@@ -7,7 +7,7 @@
 			# code...
 		}
 
-		public function getData(){
+		public function getData($type, $location){
 			
 			// Enter the path that the oauth library is in relation to the php file
 			require_once ('OAuth.php');
@@ -16,7 +16,7 @@
 			//$unsigned_url = "http://api.yelp.com/v2/business/the-waterboy-sacramento";
 
 			// For examaple, search for 'tacos' in 'sf'
-			$unsigned_url = "http://api.yelp.com/v2/search?term=plumbing&location=ny";
+			$unsigned_url = "http://api.yelp.com/v2/search?term=".$type."&location=".$location;
 
 
 			// Set your keys here
@@ -60,6 +60,6 @@
 
 
 	$yelp = new YelpData();
-	$yelp->getData();
+	$yelp->getData('floor', '14623');
 
 ?>

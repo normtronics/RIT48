@@ -14,6 +14,8 @@ class User
 	public function createUser($userArray, $addressArray)
 	{
 
+		//Maybe add gets here
+
 		$query = "INSERT INTO address (`street`, `city`, `state`, `zip`) 
 			VALUES('".$addressArray[0]."','".$addressArray[1]."','".$addressArray[2]."','".$addressArray[3]."')";
 
