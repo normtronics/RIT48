@@ -1,6 +1,8 @@
 <?php
 
-	class YelpData implements IData
+	include 'IData.php';
+
+	class YelpData extends IData
 	{
 		function __construct()
 		{
@@ -60,6 +62,7 @@
 			//print_r($response);
 
 			header('Content-type: application/json');
+			header('Access-Control-Allow-Origin: *');
 			//echo json_encode($this->objectToArray($data));
 			echo json_encode(array('Yelp' => $response));
 		}
