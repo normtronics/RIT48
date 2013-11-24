@@ -1,0 +1,154 @@
+
+<html class="no-js" lang="en">
+  <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>The Blurb</title>
+	<link rel="stylesheet" href="css/foundation.css" />
+	<script src="js/modernizr.js"></script>
+	<script src="js/jquery.js"></script>
+	 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script>
+  $(function() {
+  	var electrical = [
+  	"Wiring",
+  	"Circut Breaker"
+  	];
+  	var plumbing = [
+  	"Toilet",
+  	"Busted Pipe",
+  	"Water Heater"
+  	];
+    var availableTags = [
+      "Option1",
+      "Option2",
+      "Option3"
+    ];
+    function split( val ) {
+      return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+      return split( term ).pop();
+    }
+ 
+    $( "#tags" )
+      // don't navigate away from the field on tab when selecting an item
+      .bind( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+            $( this ).data( "ui-autocomplete" ).menu.active ) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+          // delegate back to autocomplete, but extract the last term
+          response( $.ui.autocomplete.filter(
+            availableTags, extractLast( request.term ) ) );
+        },
+        focus: function() {
+          // prevent value inserted on focus
+          return false;
+        },
+        select: function( event, ui ) {
+          var terms = split( this.value );
+          // remove the current input
+          terms.pop();
+          // add the selected item
+          terms.push( ui.item.value );
+          // add placeholder to get the comma-and-space at the end
+          terms.push( "" );
+          this.value = terms.join( ", " );
+          return false;
+        }
+      });
+  });
+  </script>
+	<style type="text/css">
+		.drop{
+			text-shadow: 0px 1px 1px #4d4d4d;
+			font-size:20px;
+			color: #EFEFEF;
+			font-weight:600;
+		}
+		#BG{
+			position: fixed; 
+			top: 0; 
+			left: 0; 
+				
+			/* Preserve aspet ratio */
+			min-width: 100%;
+			min-height: 100%;
+		}
+		body{
+			background-color: #272727;
+		}
+	</style>
+  </head>
+  <body>
+	<!-- <img src="img/images_3137_1.jpg" id="bg" alt=""> -->
+		
+		<nav class="top-bar" data-topbar>
+			<ul class="title-area">
+				<li class="name">
+					<h1><a href="#" style="font-size: 20px">Traclyst</a></h1>
+				</li>
+			</ul>
+
+			<section class="top-bar-section">
+			<!-- Right Nav Section -->
+			<ul class="right">
+			<li ><a href="#">Login</a></li>
+				<li class="active"><a href="#">Register</a></li>
+			</ul>
+
+			<!-- Left Nav Section -->
+			<ul class="left">
+				<li><a href="#">About</a></li>
+			</ul>
+			</section>
+		</nav>
+
+		<div class = "row">
+				<div class="large-12 columns">
+					<br>
+					<br>
+						<div class = "large-3 large-centered columns ">
+							<H5 style="color: white; font-size: 50px; margin-left: 10px;"> Traclyst</H5>
+						</div>			
+				</div>
+		</div>
+		<div class = "row">
+			<div class = "large-3 large-centered columns ">
+				<H5 style="color: white; font-size: 50px"> $SerciceName</H5>
+			</div>	
+		</div>
+
+
+		<div class = "row">
+			<div class = "large-3 large-centered columns ">
+				<label class = "drop">Date</label>
+				<input type="text" placeholder="" id="datepicker"/>
+			</div>	
+		</div>
+		
+
+		<div class = "row">
+			<div class = "large-3 large-centered columns ">
+				<label class = "drop">Sub-Service</label>
+				<input type="text" id="tags" placeholder="" />
+			</div>	
+		</div>
+		<div class="row">
+				<div class="large-3 large-centered columns">
+					<br>
+					<input type="submit" class="small button" value="                 Next                 " />
+				</div>
+			</div>
+		
+		
+		
+	
+	
+  </body>
+</html>
