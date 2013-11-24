@@ -28,9 +28,10 @@
 		}
 	</style>
   </head>
-  <body>	
-		<?php include 'header.php';?>
-
+  <body>
+	<!-- <img src="img/images_3137_1.jpg" id="bg" alt=""> -->
+		
+		<?php include 'header.php' ?>
 		<div class = "row">
 				<div class="large-12 columns">
 					<br>
@@ -66,11 +67,21 @@
 							<label class = "drop">Password</label>
 							<input type="text" placeholder="Password" id="pass"/>
 						</div>
-
+						<div class="large-4 medium-4 columns">
+							<label class="drop">Enter again</label>
+							<input type="text" placeholder="Password Again" id="pass2" />
+						</div>
 				</div>
 
 			</div>
-
+			<div class = "row">
+				<div class="large-12 columns">
+						<div class="large-12 columns">
+							<label class = "drop">Email</label>
+							<input type="text" placeholder="E-Mail" />
+						</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="large-3 large-centered columns">
 					<br>
@@ -80,7 +91,7 @@
 			
 		</div>
 		
-		<?php include 'footer.php';?>
+	<?php include 'footer.php' ?>
 	<script src="js/jquery.js"></script>
 	<script src="js/foundation.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
