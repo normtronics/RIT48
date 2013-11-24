@@ -8,8 +8,16 @@
 	<link href="css/datepicker.css" rel="stylesheet" type="text/css"/>	
 	<script src="js/modernizr.js"></script>
 	<script src="js/jquery.js"></script>
-	 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<!-- Plugin files below -->
+	
+	<link rel="stylesheet" type="text/css" href="src/jquery.ptTimeSelect.css" />
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
+	<script type="text/javascript" src="src/jquery.ptTimeSelect.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
 	<script>
+
+
   $(function() {
   	var electrical = [
   	"Wiring",
@@ -125,16 +133,21 @@
 		</div>
 		<div class = "row">
 			<div class = "large-3 large-centered columns ">
-				<H5 style="color: white; font-size: 50px"> $SerciceName</H5>
+				<H5 style="color: white; font-size: 50px"> Service</H5>
 			</div>	
 		</div>
 
 
 		<div class = "row">
-			<div class = "large-3 large-centered columns ">
+			<div class = "large-6 columns ">
 				<label class = "drop">Date</label>
 				<input type="text" placeholder="" id="datepicker"/>
-			</div>	
+			</div>
+
+			<div class = "large-6 columns">
+				<label class = "drop">Time</label>
+				<input type="text" placeholder="" id="timepicker"/>
+			</div>
 		</div>
 		
 
@@ -151,7 +164,12 @@
 				</div>
 			</div>
 		
-		
+		<script type="text/javascript">
+        $(document).ready(function(){
+            // find the input fields and apply the time select to them.
+            $('#timepicker').ptTimeSelect();
+        });
+    </script>
 		
 	
 	
