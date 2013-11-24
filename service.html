@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>The Blurb</title>
 	<link rel="stylesheet" href="css/foundation.css" />
+	<link href="css/datepicker.css" rel="stylesheet" type="text/css"/>	
 	<script src="js/modernizr.js"></script>
 	<script src="js/jquery.js"></script>
 	 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -63,6 +64,10 @@
         }
       });
   });
+
+	$(function(){
+			$('#datepicker').datepicker();
+		});
   </script>
 	<style type="text/css">
 		.drop{
