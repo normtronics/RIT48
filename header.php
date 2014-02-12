@@ -9,15 +9,15 @@
 </style>
 
 <nav class="top-bar" data-topbar>
-			<ul class="title-area">
-				<li class="name">
-					<h1><a href="index.php">Traclyst</a></h1>
-				</li>
-			</ul>
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="index.php">Traclyst</a></h1>
+		</li>
+	</ul>
 
-			<section class="top-bar-section">
-			<!-- Right Nav Section -->
-			<ul class="right">
+	<section class="top-bar-section">
+	<!-- Right Nav Section -->
+		<ul class="right">
 			<li>
 				<a href="Login.php">Login</a>
 				<ul style="display:none" id="log">
@@ -26,11 +26,11 @@
 				</ul>
 			</li>
 			<li><a href="register.php">Register</a></li>
-			</ul>
+		</ul>
 
-			<!-- Left Nav Section -->
-			<ul class="left">
-				<li><a href="#">About</a></li>
-			</ul>
-			</section>
-		</nav>
+		<!-- Left Nav Section -->
+		<ul class="left">
+			<li><a href="#">About</a></li>
+		</ul>
+	</section>
+</nav>
